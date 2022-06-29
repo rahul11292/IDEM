@@ -1,0 +1,104 @@
+@import './../../../variables.scss';
+.card-container,
+.card,
+.front,
+.back {
+    height: 10em;
+    width: 7em;
+}
+
+.card-container {
+    margin: 0em auto;
+    margin-top: 25vh;
+    position: relative;
+    perspective: 25em;
+    perspective-origin: bottom;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    animation-name: floating;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    &:hover .card {
+        box-shadow: 1vmin 5vmin 4vmin rgba(0, 0, 0, 0.15), 0.5vmin 4vmin 3vmin rgba(0, 0, 0, 0.10);
+        transform: rotateX( 36deg) rotateZ( 84deg) rotateY( 222deg) translateZ(-10vmin) rotateX( 180deg);
+    }
+    &.flipped:hover .card {
+        box-shadow: -1vmin 5vmin 4vmin rgba(0, 0, 0, 0.15), -0.5vmin 4vmin 3vmin rgba(0, 0, 0, 0.10);
+        transform: rotateX( 36deg) rotateZ( 84deg) rotateY( 222deg) translateZ(-10vmin) rotateX( 180deg);
+    }
+    &.flipped .card {
+        box-shadow: -1vmin 1vmin 2vmin rgba(0, 0, 0, 0.19), -1vmin 1vmin 0.5vmin rgba(0, 0, 0, 0.23);
+        transform: rotateX(30deg) rotateZ(30deg) rotateY(180deg);
+    }
+    .card {
+        background: radial-gradient(circle, #fff4d6, #E8DDBF, #c2b696);
+        border-radius: 2vmin;
+        box-shadow: 1vmin 1vmin 2vmin rgba(0, 0, 0, 0.19), 1vmin 1vmin 0.5vmin rgba(0, 0, 0, 0.23);
+        cursor: pointer;
+        position: relative;
+        transform: rotateX(30deg) rotateZ(30deg) rotateY(0deg);
+        transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+        transform-style: preserve-3d;
+        user-select: none;
+        .front,
+        .back {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .front {
+            svg {
+                transform: rotateZ( 90deg);
+            }
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+        .back {
+            transform: rotateY(180deg);
+        }
+    }
+}
+
+.BackgroudAuthPage {
+    svg {
+        position: absolute;
+        fill: $mainDarkShade;
+        transform: rotate( -90deg);
+        width: 3.5em;
+        #card-back {
+            fill: $mainDarkShade !important;
+            circle {
+                fill: $baige;
+            }
+        }
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: scale(2) translateY(0px);
+    }
+    50% {
+        transform: scale(2) translateY(6px);
+    }
+    100% {
+        transform: scale(2) translateY(0px);
+    }
+}
+
+.ladincardWithHeading{
+    .headingMain {
+        font-size: 1.8em;
+        font-weight: 300;
+        margin-top: 4em;
+        span {
+            font-weight: 400;
+            color: $mainDarkShade;
+        }
+    }
+}

@@ -1,0 +1,147 @@
+@import "./../../../variables.scss";
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border-radius: 5px;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  background: rgba(192, 192, 192, 0.685);
+  margin-bottom: 25px;
+  height: 15em;
+  width: 80%;
+}
+
+.img-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.img-upload:before {
+  font-family: "Material Icons";
+  content: "\e2c6";
+  font-size: 90px;
+  position: absolute;
+  padding-top: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: $mainColor;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: transparent;
+}
+.img-upload:hover:before {
+  opacity: 1;
+}
+img {
+  width: auto;
+  height: 100%;
+}
+
+label {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #676767;
+}
+
+.contactDetails {
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .MuiFormControl-root,
+    .MuiTextField-root {
+      width: 100%;
+      margin-bottom: 0.8rem;
+    }
+    .name {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      grid-template-rows: 1fr;
+      gap: 0px 20px;
+      grid-template-areas: ". .";
+      justify-content: space-between;
+      align-content: center;
+      justify-items: start;
+      align-items: center;
+    }
+    .numberAndEmail {
+      display: grid;
+      grid-template-columns: 1.8fr 2.2fr;
+      grid-template-rows: 1fr;
+      gap: 0px 10px;
+      grid-template-areas: ". .";
+      justify-content: space-between;
+      align-content: center;
+      justify-items: start;
+      align-items: flex-start;
+    }
+    .addNumber,
+    .addEmail {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      width: 100%;
+      .number,
+      .email {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      button {
+        background-color: transparent;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        color: $mainDarkShade;
+        margin-top: 0.4rem;
+        svg {
+          font-size: 24px;
+        }
+      }
+      .RemoveButton {
+        padding-left: 0.6rem;
+        svg {
+          font-size: 20px;
+        }
+      }
+    }
+    .shownameOnFront {
+      margin-top: -10px;
+    }
+  }
+  .personWithRmove{
+    display: flex;
+    align-items: flex-start;
+    .rmoveButton{
+background-color: transparent;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        color: $mainDarkShade;
+        margin-top: 0.4rem;
+        margin-left: -10px;
+        svg {
+          font-size: 24px;
+        }
+    }
+  }
+  .addContactsButton{
+    display: flex;
+    justify-content: flex-start;
+  }
+}
